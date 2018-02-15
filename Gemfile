@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'rails', '4.2.10'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'stock_quote'
 gem 'turbolinks'
 gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
