@@ -1,8 +1,22 @@
-<%= bootstrap_flash %>
+<%= bootstrap_flash if params[:action] == 'search' %>
 <% if @stock %>
   <div class="well">
     <strong>Symbol:</strong> <%= @stock.ticker %>
     <strong>Name:</strong> <%= @stock.name %>
     <strong>Last Price:</strong> <%= @stock.last_price %>
+
+  <% if current_user.can_track?(@stock.ticker) %>
+    <%= link_to "Add to my stocks",
+                user_stocks_path(stock_ticker: @stock.ticker),
+                method: :post,
+                class: "btn btn-success btn-xs" %>
+  <% else %>
+    <span class="label label-default">
+      You are already tracking
+      <%= '10 stocks' unless current_user.under_stock_limit? %>
+      <%= 'this stock' if current_user.tracking?(@stock.ticker) %>
+    </span>
+  <% end %>
+
   </div>
 <% end %>
