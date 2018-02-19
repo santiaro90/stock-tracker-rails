@@ -17,7 +17,7 @@
 //= require_tree .
 
 $(document).ready(function onDocumentReady() {
-  $('#stock-lookup-form').on('ajax:complete', onStockResultsSuccess)
+  $('html').on('ajax:complete', '#stock-lookup-form', onStockResultsSuccess)
 
   function onStockResultsSuccess(event, data, status) {
     $('#stock-lookup-results').html(data.responseText)
