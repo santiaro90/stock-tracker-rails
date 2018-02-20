@@ -1,21 +1,21 @@
-<h3>Search for stocks</h3>
+<h3>Search for friends</h3>
 
-<div class="stock-lookup row">
+<div class="friend-lookup row">
 
-  <%= form_tag search_stocks_path,
+  <%= form_tag users_path,
                method: :get,
                remote: true,
-               class: "stock-lookup__form col-xs-12",
+               class: "friend-lookup__form col-xs-12",
                id: "lookup-form" do %>
 
     <div class="form-group form-group-lg">
       <div class="input-group">
 
-        <%= text_field_tag :stock,
-          params[:stock],
+        <%= text_field_tag :search,
+          params[:search],
           autofocus: true,
           class: "form-control",
-          placeholder: "Stock ticker symbol" %>
+          placeholder: "Enter name or email" %>
 
         <div class="input-group-btn">
           <%= button_tag(type: :submit, class: "btn btn-lg btn-primary") do %>
@@ -28,6 +28,6 @@
 
   <% end %>
 
-  <div id="lookup-results" class="stock-lookup__results col-xs-12"></div>
+  <div id="lookup-results" class="friend-lookup__results col-xs-12"></div>
 
 </div>

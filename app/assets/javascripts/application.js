@@ -16,10 +16,10 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function onDocumentReady() {
-  $('html').on('ajax:complete', '#stock-lookup-form', onStockResultsSuccess)
+$(document).on('turbolinks:load', function onDocumentReady() {
+  $('#lookup-form').on('ajax:complete', onStockResultsSuccess)
 
   function onStockResultsSuccess(event, data, status) {
-    $('#stock-lookup-results').html(data.responseText)
+    $('#lookup-results').html(data.responseText)
   }
 })

@@ -1,0 +1,12 @@
+.friend-lookup__results .friend-lookup__result-name,
+.friend-lookup__results .friend-lookup__result-email {
+  display: block;
+}
+
+.friend-lookup__results .friend-lookup__result-email {
+  margin-bottom: 1rem;
+}
+
+.friend-lookup__results .friend-lookup__btn-add {
+  margin-bottom: 1rem;
+}

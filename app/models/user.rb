@@ -10,6 +10,13 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships
 
+  def self.search(q)
+    to_search = q.strip.downcase
+
+    where('first_name like :q or last_name like :q or email like :q',
+          q: "%#{to_search}%")
+  end
+
   def full_name
     return "#{first_name} #{last_name}".strip if first_name || last_name
     'Anonymous'
@@ -29,5 +36,9 @@ class User < ActiveRecord::Base
 
   def can_track?(ticker)
     under_stock_limit? && !tracking?(ticker)
+  end
+
+  def friends_with?(user)
+    friendships.find_by(friend_id: user.id)
   end
 end

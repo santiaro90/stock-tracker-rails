@@ -1,0 +1,26 @@
+<%= bootstrap_flash if params[:action] == 'search' %>
+
+<% if @users && @users.any? %>
+  <div class="well">
+    <div class="row">
+
+      <% @users.each do |user| %>
+        <div class="col-md-4 text-center">
+
+          <strong class="friend-lookup__result-name">
+            <%= link_to user.full_name, user_path(user) %>
+          </strong>
+          <small class="friend-lookup__result-email"><%= user.email %></small>
+
+          <% unless current_user.friends_with?(user) %>
+            <%= link_to 'Add to friends',
+                        '#',
+                        class: 'friend-lookup__btn-add btn btn-xs btn-success' %>
+          <% end %>
+
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+<% end %>
