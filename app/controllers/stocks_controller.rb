@@ -7,6 +7,6 @@ class StocksController < ApplicationController
       flash.now[:danger] = 'The stock ticker is required'
     end
 
-    render partial: 'users/stock_lookup_results'
+    render partial: 'stocks/lookup_results'
   end
 end
