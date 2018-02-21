@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get 'users', to: 'users#search'
 
   resources :user_stocks, only: %i[create destroy]
-  resources :friendships
+  resources :friendships, only: %i[create destroy]
 end

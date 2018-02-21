@@ -13,9 +13,9 @@
           <small class="friend-lookup__result-email"><%= user.email %></small>
 
           <% unless current_user.friends_with?(user) %>
-            <%= link_to 'Add to friends',
-                        '#',
-                        class: 'friend-lookup__btn-add btn btn-xs btn-success' %>
+            <%= button_to 'Add to friends',
+                          friendships_path(friend: user),
+                          class: 'friend-lookup__btn-add btn btn-xs btn-success' %>
           <% end %>
 
         </div>
