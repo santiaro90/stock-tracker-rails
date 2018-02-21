@@ -18,4 +18,9 @@ class UsersController < ApplicationController
 
     render partial: 'friends/lookup_results'
   end
+
+  def show
+    @user = User.find(params[:id])
+    @stocks = @user.stocks
+  end
 end
